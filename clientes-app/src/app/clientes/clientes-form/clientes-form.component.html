@@ -4,22 +4,31 @@
 </ol>
 
 <div class="container">
-   <form>
-
+    
+   <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
+  
     <!--  INPUT ID -->
        <div class="row">
          <div class="col-md-6">
            <div class="form-group">
                <label>ID:</label>
-               <input type="text" class="form-control" disabled="true"/>
+               <input type="text"
+                class="form-control"
+                name="id"
+                (ngModel)="cliente.id"
+                disabled="true"/>
            </div>
          </div>
 
-         <!--  INPUT DATA DE CADASTRO -->
+         <!--  INPUT DATA DE CADASTRO  -->
          <div class="col-md-6">
             <div class="form-group">
                 <label>Data do Cadastro:</label>
-                <input type="text" class="form-control" disabled="true"/>
+                <input type="text"
+                 class="form-control"
+                 name="dataCadastro"
+                 (ngModel)="cliente.dataCadastro"
+                 disabled="true"/>
             </div>
           </div>
 
@@ -30,7 +39,11 @@
         <div class="col-md-6">
           <div class="form-group">
               <label>Nome: *</label>
-              <input type="text" class="form-control"/>
+              <input type="text" 
+              class="form-control" 
+              [(ngModel)]="cliente.nome"
+              name="nome" 
+              placeholder="Digite seu nome"/>
           </div>
         </div>
 
@@ -38,7 +51,11 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>CPF: *</label>
-                <input type="text" class="form-control"/>
+                <input type="text" 
+                 class="form-control"
+                 name="cpf" 
+                 [(ngModel)]="cliente.cpf" 
+                 placeholder="digite seu CPF"/>
             </div>
           </div>
 
