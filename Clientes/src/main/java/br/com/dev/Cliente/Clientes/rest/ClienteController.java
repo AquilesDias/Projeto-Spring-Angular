@@ -2,10 +2,8 @@ package br.com.dev.Cliente.Clientes.rest;
 
 import br.com.dev.Cliente.Clientes.model.entity.Cliente;
 import br.com.dev.Cliente.Clientes.model.repository.ClienteRepository;
-import ch.qos.logback.core.net.server.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -13,6 +11,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/clientes")
+@CrossOrigin("http://localhost:4200")
 public class ClienteController {
 
     private final ClienteRepository repository;
