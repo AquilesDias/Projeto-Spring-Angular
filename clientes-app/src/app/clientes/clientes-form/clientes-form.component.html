@@ -1,6 +1,6 @@
 <h1 class="mt-4">Clientes</h1>
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Cadastramento de Clientes</li>
+    <li class="breadcrumb-item active">{{ cliente.id ? 'Editar Cliente' : 'Cadastramento de Clientes' }}</li>
 </ol>
 
 <div class="container">
@@ -31,7 +31,7 @@
                <label>ID:</label>
                <input type="text"
                 class="form-control"
-                (ngModel)="cliente.id"
+                [ngModel]="cliente.id"
                 name="id"
                 disabled="true"/>
            </div>
@@ -43,7 +43,7 @@
                 <label>Data do Cadastro:</label>
                 <input type="text"
                  class="form-control"
-                 (ngModel)="cliente.dataCadastro"
+                 [ngModel]="cliente.dataCadastro"
                  name="dataCadastro"
                  disabled="true"/>
             </div>
@@ -81,8 +81,13 @@
       <div class="row">
           <!--  BOTÃO SALVAR  -->
           <div class="col-md-3">
-              <button type="submit" class="btn btn-success">
+              <button type="submit" class="btn btn-success" *ngIf="!cliente.id">
                   <i class="fa fa-save"></i> Salvar
+                </button>
+                
+                <!--  BOTÃO ATUALIZAR  -->
+              <button type="submit" class="btn btn-primary" *ngIf="cliente.id">
+                  <i class="fa fa-sync-alt"></i> Atualizar
               </button>
 
               <!--  BOTÃO CANCELAR  -->
