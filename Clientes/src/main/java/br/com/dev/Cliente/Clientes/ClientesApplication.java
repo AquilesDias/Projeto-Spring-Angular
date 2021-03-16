@@ -13,16 +13,16 @@ public class ClientesApplication {
 
 	    @Autowired ClienteRepository clienteRepository;
 
-		@Bean
-		public CommandLineRunner run(@Autowired ClienteRepository clienteRepository){
-		return args -> {
-			Cliente cliente = Cliente.builder()
-					.cpf("45317828791")
-					.nome("Musk")
-					.build();
-			clienteRepository.save(cliente);
-		 };
-		}
+//		@Bean
+//		public CommandLineRunner run(@Autowired ClienteRepository clienteRepository){
+//		return args -> {
+//			Cliente cliente = Cliente.builder()
+//					.cpf("45317828791")
+//					.nome("Musk")
+//					.build();
+//			clienteRepository.save(cliente);
+//		 };
+//		}
 
 	public static void main(String[] args) {
 
