@@ -25,14 +25,14 @@
     </div>
   
     <!--  INPUT ID -->
-       <div class="row">
+       <div class="row" *ngIf="cliente.id">
          <div class="col-md-6">
            <div class="form-group">
                <label>ID:</label>
                <input type="text"
                 class="form-control"
-                name="id"
                 (ngModel)="cliente.id"
+                name="id"
                 disabled="true"/>
            </div>
          </div>
@@ -43,8 +43,8 @@
                 <label>Data do Cadastro:</label>
                 <input type="text"
                  class="form-control"
-                 name="dataCadastro"
                  (ngModel)="cliente.dataCadastro"
+                 name="dataCadastro"
                  disabled="true"/>
             </div>
           </div>
@@ -78,12 +78,18 @@
 
       </div>
       
-      <!--  BOTÃO SALVAR  -->
       <div class="row">
-          <div class="col-md-2">
+          <!--  BOTÃO SALVAR  -->
+          <div class="col-md-3">
               <button type="submit" class="btn btn-success">
                   <i class="fa fa-save"></i> Salvar
               </button>
+
+              <!--  BOTÃO CANCELAR  -->
+              <button type="button" class="btn btn-danger ml-2" (click)="voltarParaListagem()">
+                <i class="fas fa-arrow-circle-left"></i> Voltar
+              </button>
+
           </div>
       </div>
    </form>
