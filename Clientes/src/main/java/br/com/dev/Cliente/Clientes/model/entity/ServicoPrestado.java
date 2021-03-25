@@ -1,17 +1,15 @@
 package br.com.dev.Cliente.Clientes.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
+import lombok.Data;
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @Data
 @Table(name="tb_servico")
-public class Servico {
+public class ServicoPrestado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,4 +24,7 @@ public class Servico {
 
     @Column
     private BigDecimal valor;
+
+    @Column
+    private LocalDate data;
 }
