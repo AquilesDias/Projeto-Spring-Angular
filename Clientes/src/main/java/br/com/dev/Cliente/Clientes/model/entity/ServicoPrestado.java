@@ -1,6 +1,7 @@
 package br.com.dev.Cliente.Clientes.model.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -26,5 +27,6 @@ public class ServicoPrestado {
     private BigDecimal valor;
 
     @Column
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate data;
 }
