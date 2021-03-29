@@ -19,6 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/servicos-prestados")
+@CrossOrigin("http://localhost:4200")
 public class ServicoPrestadoController {
 
     private final ClienteRepository clienteRepository;

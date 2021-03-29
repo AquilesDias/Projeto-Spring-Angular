@@ -11,7 +11,7 @@ import {ServicoPrestado} from './servico-prestado/servicoPrestado'
 })
 export class ServicoPrestadoService {
 
-  apiURL: string = environment.apiUrlBase + 'api/servicos-prestados';
+  apiURL: string = environment.apiUrlBase + '/api/servicos-prestados';
 
   constructor(private http: HttpClient) { }
 
