@@ -6,8 +6,14 @@
 
 <div class="container">
     <form  #consultarForm="ngForm" (submit)="consultar()">
+        <!--MENSAGEM DE ALERTA -->
+        <div class="alert alert-warning" role="alert" *ngIf="message">
+            <strong>{{ message }}</strong>
+        </div>
+
         <div class="row">
-            <div class="col-md-5">
+
+            <div class="col-md-5">            
                 <label for="inputNome">Nome Cliente:</label>
 
                 <input 
@@ -39,6 +45,37 @@
         </div>
 
     </form>
+<br/>
+    
+    <div class="row">
+        <div class="col-md-12">
+          
+            <!--INICIO DA TABELA-->
+            <table class="table">
+                <thead> 
+                    <tr>
+                    
+                        <th>Cliente</th>
+                        <th>Descrição</th>
+                        <th>Data</th>
+                        <th>Valor</th>
+
+                    </tr>                 
+                </thead>               
+                <tbody>
+                    <tr *ngFor="let l of lista">
+                   
+                            <td>{{ l.cliente.nome }}</td>
+                            <td>{{ l.descricao }}</td>
+                            <td>{{ l.data }}</td>
+                            <td>{{ l.valor }}</td>                
+                    
+                    </tr>              
+                </tbody>
+            </table>
+
+        </div>
+    </div>
 
    
 </div>
