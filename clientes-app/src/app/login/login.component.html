@@ -14,11 +14,15 @@
                             </div>
                             <div class="card-body">
 
+                                <div class="alert alert-success" *ngIf="mensagemSucesso">
+                                   {{ mensagemSucesso }}
+                                </div>
+                                
                                 <div class="alert alert-danger" *ngIf="loginError">
                                     Login e/ou Senha incorretos.
                                 </div>
 
-                                <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+                                <form #loginForm="ngForm" (submit)="onSubmit();">
                                     <div class="form-group">
                                         
                                         <input type="text" name="username"
@@ -40,7 +44,9 @@
                                             Entrar
                                         </button>
                                         
-                                        <button type="submit " class="btn btn-success" *ngIf="cadastrando">
+                                        <button type="submit" class="btn btn-success"
+                                             (click)="cadastrar()"
+                                             *ngIf="cadastrando">
                                             Cadastrar
                                         </button>
 
