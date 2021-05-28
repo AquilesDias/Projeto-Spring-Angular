@@ -18,8 +18,8 @@
                                    {{ mensagemSucesso }}
                                 </div>
                                 
-                                <div class="alert alert-danger" *ngIf="loginError">
-                                    Login e/ou Senha incorretos.
+                                <div class="alert alert-danger" *ngFor="let erro of errors">
+                                    {{erro}}
                                 </div>
 
                                 <form #loginForm="ngForm" (submit)="onSubmit();">
@@ -44,7 +44,7 @@
                                             Entrar
                                         </button>
                                         
-                                        <button type="submit" class="btn btn-success"
+                                        <button type="button" class="btn btn-success"
                                              (click)="cadastrar()"
                                              *ngIf="cadastrando">
                                             Cadastrar
