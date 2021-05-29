@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
@@ -23,7 +24,15 @@ export class LoginComponent {
   constructor(private router: Router, private authService: AuthService) { }
 
   onSubmit(){
-    this.router.navigate(['/home'])
+    this.authService
+        .tentarLogar(this.username, this.password)
+        .subscribe( response => {
+          const access_token = JSON.stringify(response);
+          localStorage.setItem('access_token', access_token)
+          this.router.navigate(['/home'])
+        }, errorResponse => {
+          this.errors = ["Usuário e/ou login incorreto(s)!"]
+        })
   }
 
   preparaCadastrar(event){
@@ -43,7 +52,10 @@ export class LoginComponent {
           .salvar(usuario)
           .subscribe(response => {
                 this.mensagemSucesso = "Cadastro concluído com sucesso! Efetue o login";
-              
+                this.cadastrando = false;
+                this.username = "";
+                this.password = "";
+                this.errors = [];
           }, errorResponse => { 
                 this.mensagemSucesso = null;
                 this.errors = errorResponse.error.errors;
