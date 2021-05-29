@@ -22,7 +22,6 @@ export class AuthService {
     return this.http.post<any>(this.apiUrl, usuario);
   }
 
-  
   tentarLogar( username: string, password: string) : Observable<any> {
 
       const params = new HttpParams() 
@@ -37,4 +36,9 @@ export class AuthService {
 
     return this.http.post(this.tokenURL, params.toString(), {headers})
   }
+
+  isAuthenticated() : boolean{
+    return false;
+  }
+
 }
