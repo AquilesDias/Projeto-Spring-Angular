@@ -23,6 +23,14 @@
                 </div>
                     Serviços Prestados
                 </a>
+
+                <div class="sb-sidenav-menu-heading">Logout</div>
+                <a class="nav-link collapsed" (click)="logout()" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                    <div class="sb-nav-link-icon">
+                        <i class="fas fa-sign-out-alt"></i>
+                </div>
+                    Sair
+                </a>
                 
             </div>
         </div>
@@ -30,7 +38,7 @@
         <div class="sb-sidenav-footer">
             <div class="small">Logado como:</div>
             <i class="fas fa-user"></i>
-            Start Bootstrap
+               {{ usuarioLogado }}
         </div>
 
     </nav>
